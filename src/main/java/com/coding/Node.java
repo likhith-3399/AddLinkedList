@@ -18,7 +18,4 @@ public class Node {
     public Node() {
     }
 
-//    Node new_node = new Node(number);
-//    head = new_node;
-
 }

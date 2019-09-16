@@ -12,6 +12,10 @@ public class LinkedList {
     }
 
 
+    /**
+     * Method to add a Node in the begining of a linked list
+     * @param number
+     */
     public void insertNodeInBegining(int number) {
         Node insertNode = new Node(number);
 
@@ -22,6 +26,10 @@ public class LinkedList {
         head.link = insertNode;
     }
 
+    /**
+     * Method to add a Node at the end of a linked list
+     * @param number
+     */
     public void insertNodeAtEnd(int number){
         Node temp = head;
 
@@ -36,6 +44,9 @@ public class LinkedList {
     }
 
 
+    /**
+     * Method to delete First Node of the linked list
+     */
     public void deleteFirstNode() {
         if(head == null) {
             return;
@@ -46,6 +57,9 @@ public class LinkedList {
         }
     }
 
+    /**
+     * Method to delete Last Node of the linked list
+     */
     public void deleteLastNode() {
         if(head == null) return;
 
@@ -57,6 +71,9 @@ public class LinkedList {
         tempNode.link = null;
     }
 
+    /**
+     * Method to delete the node whose value matches the given number in the Linked List
+     */
     public void deleteNode(int number) {
         if(head == null) return;
 
@@ -75,6 +92,9 @@ public class LinkedList {
         System.out.println(number+" .. Not Found .....");
     }
 
+    /**
+     * Method to print the contents od a Linked list
+     */
     public void printAll(){
 
         if(head != null && head.link == null){
@@ -82,7 +102,7 @@ public class LinkedList {
             return;
         }
 
-//        System.out.println("----------- Current List Contents --------------");
+        System.out.println("----------- Current List Contents --------------");
         Node temp = head.link;
         while (temp != null) {
             System.out.print(temp.number);
@@ -90,5 +110,23 @@ public class LinkedList {
         }
     }
 
+    /**
+     * Method which adds two numbers in the linked lists
+     */
+    public Integer addLists(int number1, int number2){
+        if(number1 < 0 || number2 < 0) {
+
+            throw new RuntimeException("Please enter a positive integer");
+        }
+
+        Utility utility = new Utility();
+
+        LinkedList list1 = utility.createLinkedList(number1);
+        LinkedList list2 = utility.createLinkedList(number2);
+
+//        System.out.println("Result List : ");
+        LinkedList result = utility.addTwoLists(list1, list2);
+        return utility.convertListToInteger(result);
+    }
 
 }
